@@ -2,9 +2,12 @@
   "name": "plug-works",
   "version": "0.0.1",
   "description": "This is a react component library.",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   },
   "repository": {
     "type": "git",
@@ -17,9 +20,15 @@
   },
   "homepage": "https://github.com/Descode1/plug-works#readme",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/react": "^19.1.8",
     "react": "^19.1.0",
     "reactdom": "^2.0.0",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.8.1",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

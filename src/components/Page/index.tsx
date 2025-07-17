@@ -1,4 +1,4 @@
-import { pageProps } from "./types.d";
+import { pageProps } from "./types";
 import React from "react";
 
 

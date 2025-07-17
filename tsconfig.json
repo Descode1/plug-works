@@ -16,9 +16,9 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "dist",
-    // Remove emitDeclarationOnly - let Rollup handle JS compilation
+
     // "emitDeclarationOnly": true,
-    // Remove declarationDir - let Rollup handle declaration placement
+
     // "declarationDir": "./dist/types",
 
     /* Interop Constraints */

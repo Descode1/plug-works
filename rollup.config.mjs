@@ -27,7 +27,7 @@ export default [
             typescript({
                 tsconfig: "./tsconfig.json",
                 exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.ts"],
-                declaration: false, // Disable declarations here
+                declaration: false,
                 outDir: "./dist",
                 rootDir: "./src",
             }),

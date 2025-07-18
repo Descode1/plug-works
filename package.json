@@ -17,17 +17,18 @@
   "jest": {
     "testEnvironment": "jsdom"
   },
-  "babel":{
+  "babel": {
     "sourceType": "unambiguous",
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-typescript",[
-        "@babel/preset-react",{
-          "runtime":"automatic"
+      "@babel/preset-typescript",
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
         }
       ]
     ]
-
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "reactdom": "^2.0.0",
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-postcss": "^4.0.2",
+    "styled-components": "^6.1.19",
     "tslib": "^2.8.1",
     "typescript": "^5.8.3"
   },

@@ -8,7 +8,6 @@ describe("Page", () => {
     const children = "Test Children";
 
     const { getByText } = render(<Page title={title}>{children}</Page>);
-
     
     expect(getByText(title)).toBeInTheDocument();
     expect(getByText(children)).toBeInTheDocument();

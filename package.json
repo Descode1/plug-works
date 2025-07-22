@@ -2,7 +2,6 @@
   "name": "plug-works",
   "version": "0.0.1",
   "description": "This is a react component library.",
-  "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",

@@ -1,10 +1,18 @@
-import React from 'react';
+import React$1, { JSX } from 'react';
 
 type pageProps = {
     title: string;
-    children: React.ReactNode;
+    children: React$1.ReactNode;
 };
 
-declare const Page: React.FC<pageProps>;
+declare const Page: React$1.FC<pageProps>;
 
-export { Page };
+interface PropsInterface {
+    disabled?: boolean;
+    children?: React.ReactNode;
+    variant?: "primary" | "outlined";
+    action?: () => any;
+}
+declare const Button: (props: PropsInterface) => JSX.Element;
+
+export { Button, Page };

@@ -3189,5 +3189,41 @@ const Page = ({ title, children }) => {
     return (jsxRuntimeExports.jsx("div", { children: jsxRuntimeExports.jsxs(Container, { children: [jsxRuntimeExports.jsx("h1", { children: title }), jsxRuntimeExports.jsx("div", { children: children })] }) }));
 };
 
+const StyledButton = dt.button `
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s ease-in-out;
+    cursor: pointer;
+
+    ${({ variant }) => variant === "primary" && lt `
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        &:hover{
+            background-color: #2563eb;
+        }
+    `}
+    ${({ variant }) => variant === "outlined" && lt `
+        background-color: transparent;
+        color: #3b82f6;
+        border: 2px solid #3b82f6;
+        &:hover {
+            background-color: #e0f2fe;
+        }
+    `}
+    ${({ disabled }) => disabled && lt `
+        opacity: 0.6;
+        cursor: not-allowed;
+    `}
+`;
+
+const Button = (props) => {
+    const { disabled = false, children, variant = "primary", action } = props;
+    return (jsxRuntimeExports.jsx(StyledButton, { disabled: disabled, variant: variant, onClick: disabled ? undefined : action, children: children }));
+};
+
+exports.Button = Button;
 exports.Page = Page;
 //# sourceMappingURL=index.js.map

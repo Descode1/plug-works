@@ -11,7 +11,7 @@ interface PropsInterface {
     disabled?: boolean;
     children?: React.ReactNode;
     variant?: "primary" | "outlined";
-    action?: () => any;
+    action?: () => void;
 }
 declare const Button: (props: PropsInterface) => JSX.Element;
 

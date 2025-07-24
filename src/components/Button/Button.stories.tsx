@@ -1,3 +1,4 @@
+
 import Button from ".";
 
 export default {
@@ -13,7 +14,7 @@ export default {
       control: {
         type: "radio"
       },
-      options: ["primary", "outlined"]
+      options: ["primary", "secondary" ,"outlined"]
     },
     disabled: {
       description: "Whether the button is disabled",
@@ -40,14 +41,18 @@ export const Primary = {
     variant: "primary"
   }
 };
-
+export const Secondary = {
+    args: {
+        children: "Click Me",
+        variant: "secondary"
+    }
+};
 export const Outlined = {
   args: {
     children: "Cancel",
     variant: "outlined"
   }
 };
-
 export const Disabled = {
   args: {
     children: "Disabled Button",

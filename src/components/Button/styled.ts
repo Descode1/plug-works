@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface StyledProps {
-    variant: "primary" | "outlined";
+    variant: "primary" |"secondary"| "outlined";
     disabled?: boolean
 }
 
@@ -14,11 +14,19 @@ export const StyledButton = styled.button<StyledProps>`
     cursor: pointer;
 
     ${({variant}) => variant === "primary" && css`
-        background-color: #3b82f6;
+        background-color: #000000ea;
         color: white;
         border: none;
         &:hover{
-            background-color: #2563eb;
+            background-color: #232935ff;
+        }
+    `}
+    ${({variant}) => variant === "secondary" && css`
+        background-color: #FFA500;
+        color: white;
+        border: none;
+        &:hover{
+            background-color: #ffb733;
         }
     `}
     ${({variant}) => variant === "outlined" && css`

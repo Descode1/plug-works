@@ -22,7 +22,7 @@ describe("Button Component", () => {
     });
     test("has blue styles when variant is 'mlue'", () =>{
         const {container} = render(<Button variant='primary'>Blue</Button>);
-        expect(container.firstChild).toHaveStyle('background-color: #3b82f6');
+        expect(container.firstChild).toHaveStyle('background-color: #000000ea');
         expect(container.firstChild).toHaveStyle('color: rgb(255, 255, 255)');
     });
     test("has outlined styles when variant is 'outlined'",() =>{

@@ -4,7 +4,7 @@ import { StyledButton } from "./styled";
 interface PropsInterface {
   disabled?: boolean;
   children?: React.ReactNode;
-  variant?: "primary" | "outlined";
+  variant?: "primary" | "secondary" | "outlined";
   action?: () => void;
 }
 

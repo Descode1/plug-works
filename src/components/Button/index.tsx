@@ -8,6 +8,8 @@ interface PropsInterface {
   action?: () => void;
 }
 
+export type {PropsInterface};
+
 const Button = (props: PropsInterface): JSX.Element => {
   const { disabled = false, children, variant = "primary", action }= props;
   return(

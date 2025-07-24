@@ -13,6 +13,7 @@ interface PropsInterface {
     variant?: "primary" | "outlined";
     action?: () => void;
 }
+
 declare const Button: (props: PropsInterface) => JSX.Element;
 
 export { Button, Page };

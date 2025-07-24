@@ -3198,11 +3198,19 @@ const StyledButton = dt.button `
     cursor: pointer;
 
     ${({ variant }) => variant === "primary" && lt `
-        background-color: #3b82f6;
+        background-color: #000000ea;
         color: white;
         border: none;
         &:hover{
-            background-color: #2563eb;
+            background-color: #232935ff;
+        }
+    `}
+    ${({ variant }) => variant === "secondary" && lt `
+        background-color: #FFA500;
+        color: white;
+        border: none;
+        &:hover{
+            background-color: #ffb733;
         }
     `}
     ${({ variant }) => variant === "outlined" && lt `
@@ -3224,6 +3232,52 @@ const Button = (props) => {
     return (jsxRuntimeExports.jsx(StyledButton, { disabled: disabled, variant: variant, onClick: disabled ? undefined : action, children: children }));
 };
 
+const StyledInput = dt.input `
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 2px solid transparent;
+  outline: none;
+  width: 100%;
+
+  ${({ variant }) => variant === "primary" &&
+    lt `
+      background-color: #f0f9ff;
+      border-color: #38bdf8;
+      color: #0c4a6e;
+
+      &:focus {
+        border-color: #0284c7;
+      }
+    `}
+
+  ${({ variant }) => variant === "secondary" &&
+    lt `
+      background-color: #fefce8;
+      border-color: #facc15;
+      color: #78350f;
+
+      &:focus {
+        border-color: #f59e0b;
+      }
+    `}
+
+  ${({ disabled }) => disabled &&
+    lt `
+      background-color: #f3f4f6;
+      color: #9ca3af;
+      border-color: #d1d5db;
+      cursor: not-allowed;
+    `}
+`;
+
+const Input = (props) => {
+    const { disabled = false, variant = "primary", placeholder = "", value, type = "text", onChange, } = props;
+    return (jsxRuntimeExports.jsx(StyledInput, { type: type, variant: variant, disabled: disabled, placeholder: placeholder, value: value, onChange: onChange }));
+};
+
 exports.Button = Button;
+exports.Input = Input;
 exports.Page = Page;
 //# sourceMappingURL=index.js.map

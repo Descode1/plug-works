@@ -40,15 +40,14 @@ export const Primary = {
   args: {
     variant: "primary",
     placeholder: "Type here...",
-    value: "",
+    
   },
 };
 
 export const Secondary = {
   args: {
     variant: "secondary",
-    placeholder: "Search...",
-    value: "",
+    placeholder: "Search...",    
   },
 };
 
@@ -56,7 +55,6 @@ export const Disabled = {
   args: {
     variant: "primary",
     placeholder: "Can't type here",
-    value: "",
     disabled: true,
   },
 };
@@ -66,6 +64,5 @@ export const Password = {
     variant: "primary",
     placeholder: "Enter password",
     type: "password",
-    value: "",
   },
 };

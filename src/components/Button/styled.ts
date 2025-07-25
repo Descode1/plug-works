@@ -22,7 +22,7 @@ export const StyledButton = styled.button<StyledProps>`
         }
     `}
     ${({variant}) => variant === "secondary" && css`
-        background-color: #FFA500;
+        background-color: #ffa500ff;
         color: white;
         border: none;
         &:hover{

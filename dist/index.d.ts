@@ -1,12 +1,5 @@
 import React$1, { JSX } from 'react';
 
-type pageProps = {
-    title: string;
-    children: React$1.ReactNode;
-};
-
-declare const Page: React$1.FC<pageProps>;
-
 interface PropsInterface$1 {
     disabled?: boolean;
     children?: React.ReactNode;
@@ -27,4 +20,4 @@ interface PropsInterface {
 
 declare const Input: (props: PropsInterface) => JSX.Element;
 
-export { Button, Input, Page };
+export { Button, Input };

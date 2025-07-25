@@ -17,24 +17,25 @@ export const StyledInput = styled.input<StyledProps>`
   ${({ variant }) =>
     variant === "primary" &&
     css`
-      background-color: #f0f9ff;
-      border-color: #38bdf8;
-      color: #0c4a6e;
-
+      background-color: #292c2eff;
+      border-color: #051b24ff;
+      color: #ffffffff;
       &:focus {
-        border-color: #0284c7;
+        border-color: #06013aff;
       }
     `}
 
   ${({ variant }) =>
     variant === "secondary" &&
     css`
-      background-color: #fefce8;
-      border-color: #facc15;
-      color: #78350f;
+      background-color: #292c2eff;
+      color: #ffffffff;
+      border: none;
+      border-bottom: 3px solid #333333;
+      border-radius: 0px;
 
       &:focus {
-        border-color: #f59e0b;
+        border-color: #666666;
       }
     `}
 

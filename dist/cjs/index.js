@@ -3303,7 +3303,8 @@ const AccordionContent = dt.div `
   }
 `;
 
-const Accordion = ({ items, allowMultipleOpen = false, }) => {
+const Accordion = (props) => {
+    const { items, allowMultipleOpen } = props;
     const [openIndexes, setOpenIndexes] = reactExports.useState([]);
     const toggleItem = (index) => {
         if (allowMultipleOpen) {

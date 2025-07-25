@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { JSX, useState } from "react";
 import {
   AccordionContainer,
   AccordionContent,
@@ -16,10 +16,8 @@ export interface PropsInterface {
   allowMultipleOpen: boolean;
 }
 
-const Accordion: React.FC<PropsInterface> = ({
-  items,
-  allowMultipleOpen = false,
-}) => {
+const Accordion = (props:PropsInterface): JSX.Element => {
+  const {items,allowMultipleOpen} = props;
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
   const toggleItem = (index: number) => {
     if (allowMultipleOpen) {

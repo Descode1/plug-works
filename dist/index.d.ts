@@ -28,6 +28,6 @@ interface PropsInterface {
     items: AccordionData[];
     allowMultipleOpen: boolean;
 }
-declare const Accordion: React.FC<PropsInterface>;
+declare const Accordion: (props: PropsInterface) => JSX.Element;
 
 export { Accordion, Button, Input };

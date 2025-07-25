@@ -1,15 +1,15 @@
 import React$1, { JSX } from 'react';
 
-interface PropsInterface$1 {
+interface PropsInterface$2 {
     disabled?: boolean;
     children?: React.ReactNode;
     variant?: "primary" | "secondary" | "outlined";
     action?: () => void;
 }
 
-declare const Button: (props: PropsInterface$1) => JSX.Element;
+declare const Button: (props: PropsInterface$2) => JSX.Element;
 
-interface PropsInterface {
+interface PropsInterface$1 {
     disabled?: boolean;
     variant?: "primary" | "secondary";
     placeholder?: string;
@@ -18,6 +18,16 @@ interface PropsInterface {
     onChange?: (e: React$1.ChangeEvent<HTMLInputElement>) => void;
 }
 
-declare const Input: (props: PropsInterface) => JSX.Element;
+declare const Input: (props: PropsInterface$1) => JSX.Element;
 
-export { Button, Input };
+interface AccordionData {
+    title: string;
+    content: string | React.ReactNode;
+}
+interface PropsInterface {
+    items: AccordionData[];
+    allowMultipleOpen: boolean;
+}
+declare const Accordion: React.FC<PropsInterface>;
+
+export { Accordion, Button, Input };

@@ -3263,5 +3263,58 @@ const Input = (props) => {
     return (jsxRuntimeExports.jsx(StyledInput, { type: type, variant: variant, disabled: disabled, placeholder: placeholder, value: value, onChange: onChange }));
 };
 
-export { Button, Input };
+const AccordionContainer = dt.div `
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+`;
+const AccordionItem = dt.div `
+  border-bottom: 1px solid #e5e7eb;
+`;
+const AccordionHeader = dt.div `
+  padding: 1rem;
+  background-color: #f9fafb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f3f4f6;
+  }
+`;
+const AccordionContent = dt.div `
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #374151;
+  animation: slideDown 0.2s ease-out;
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-0.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+const Accordion = ({ items, allowMultipleOpen = false, }) => {
+    const [openIndexes, setOpenIndexes] = reactExports.useState([]);
+    const toggleItem = (index) => {
+        if (allowMultipleOpen) {
+            setOpenIndexes((prev) => prev.includes(index)
+                ? prev.filter((i) => i !== index)
+                : [...prev, index]);
+        }
+        else {
+            setOpenIndexes((prev) => (prev[0] === index ? [] : [index]));
+        }
+    };
+    return (jsxRuntimeExports.jsx(AccordionContainer, { children: items.map((item, index) => (jsxRuntimeExports.jsxs(AccordionItem, { children: [jsxRuntimeExports.jsx(AccordionHeader, { onClick: () => toggleItem(index), children: item.title }), openIndexes.includes(index) && (jsxRuntimeExports.jsx(AccordionContent, { children: item.content }))] }, index))) }));
+};
+
+export { Accordion, Button, Input };
 //# sourceMappingURL=index.js.map

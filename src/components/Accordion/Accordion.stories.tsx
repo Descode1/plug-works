@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import  Accordion from ".";
-import  PropsInterface  from ".";
 
 // Example accordion data
 const sampleItems = [

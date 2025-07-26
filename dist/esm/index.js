@@ -3292,7 +3292,7 @@ const AccordionContent = dt.div `
   @keyframes slideDown {
     from {
       opacity: 0;
-      transform: translateY(-0.25rem);
+      transform: translateY(-0.5rem);
     }
     to {
       opacity: 1;

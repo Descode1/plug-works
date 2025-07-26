@@ -14,7 +14,7 @@ export const AccordionItem = styled.div`
 export const AccordionHeader = styled.div`
   padding: 1rem;
   background-color: #f9fafb;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
   transition: background-color 0.2s;
 

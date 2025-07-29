@@ -12,6 +12,7 @@ export const StyledButton = styled.button<StyledProps>`
     font-size: 14px;
     transition: background 0.2s ease-in-out;
     cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 
     ${({variant}) => variant === "primary" && css`
         background-color: #000000ea;

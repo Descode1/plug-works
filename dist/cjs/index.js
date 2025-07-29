@@ -3183,6 +3183,7 @@ const StyledButton = dt.button `
     font-size: 14px;
     transition: background 0.2s ease-in-out;
     cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 
     ${({ variant }) => variant === "primary" && lt `
         background-color: #000000ea;
@@ -3268,36 +3269,53 @@ const Input = (props) => {
 const AccordionContainer = dt.div `
   width: 100%;
   border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 `;
 const AccordionItem = dt.div `
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #f1f5f9;
+  
+  &:last-child {
+    border-bottom: none;
+  }
 `;
 const AccordionHeader = dt.div `
-  padding: 1rem;
-  background-color: #f9fafb;
-  font-weight: 400;
+  padding: 1.25rem 1.5rem;
+  background-color: #ffffff;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s;
-
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  
   &:hover {
-    background-color: #f3f4f6;
+    background-color: #f8fafc;
+  }
+  
+  &:active {
+    background-color: #f1f5f9;
   }
 `;
 const AccordionContent = dt.div `
-  padding: 1rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   background-color: #ffffff;
-  color: #374151;
-  animation: slideDown 0.2s ease-out;
-
-  @keyframes slideDown {
+  color: #475569;
+  line-height: 1.6;
+  animation: expandContent 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: top;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  
+  @keyframes expandContent {
     from {
       opacity: 0;
-      transform: translateY(-0.5rem);
+      max-height: 0;
+      transform: translateY(-8px);
     }
     to {
       opacity: 1;
+      max-height: 1000px;
       transform: translateY(0);
     }
   }

@@ -13,7 +13,7 @@ export interface AccordionData {
 
 export interface PropsInterface {
   items: AccordionData[];
-  allowMultipleOpen: boolean;
+  allowMultipleOpen?: boolean;
 }
 
 const Accordion = (props:PropsInterface): JSX.Element => {

@@ -26,7 +26,7 @@ interface AccordionData {
 }
 interface PropsInterface {
     items: AccordionData[];
-    allowMultipleOpen: boolean;
+    allowMultipleOpen?: boolean;
 }
 declare const Accordion: (props: PropsInterface) => JSX.Element;
 

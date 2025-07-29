@@ -15,7 +15,6 @@ export interface PropsInterface {
 
 const Dropdown = (props: PropsInterface): JSX.Element => {
   const { options, action, variant = "light", children } = props;
-
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,7 +36,7 @@ const Dropdown = (props: PropsInterface): JSX.Element => {
         {children}
       </div>
       {isOpen && (
-        <DropdownMenu variant={variant}>
+        <DropdownMenu variant={variant} role="menu">
           {options.map((opt) => (
             <DropdownItem
               key={opt.value}

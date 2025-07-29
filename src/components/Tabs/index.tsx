@@ -1,73 +1,51 @@
-import { JSX, useState } from "react";
-import { StyledTabsContainer, StyledTabHeader, StyledTabContent, StyledTabButton } from "./styled";
+import React, { useState, ReactNode, ReactElement, JSX } from "react";
+import {
+  StyledTabsContainer,
+  StyledTabHeader,
+  StyledTabButton,
+  StyledTabContent,
+} from "./styled";
 
-export interface PropsInterface {
-    children: React.ReactNode[];
-    variant?: "light" | "dark";
-    titles: string[];
-    defaultActiveTab?: number;
+
+interface PropsInterface {
+  children: ReactNode;
+  variant?: "light" | "dark";
+  defaultActiveTab?: number;
 }
 
-export interface HeaderInterface {
-    titles: string[];
-    activeTab: number;
-    onTabClick: (index: number) => void;
-    variant: "light" | "dark";
+interface TabHeaderProps {
+  title: string;
+  children: ReactNode;
 }
 
-export interface ContentInterface {
-    children: React.ReactNode[];
-    activeTab: number;
-}
 
-const TabHeader = (props: HeaderInterface): JSX.Element => {
-    const { titles, activeTab, onTabClick, variant } = props;
-    
-    return (
-        <StyledTabHeader variant={variant}>
-            {titles.map((title, index) => (
-                <StyledTabButton
-                    key={index}
-                    variant={variant}
-                    isActive={activeTab === index}
-                    onClick={() => onTabClick(index)}
-                >
-                    {title}
-                </StyledTabButton>
-            ))}
-        </StyledTabHeader>
-    );
+const TabHeader = ({ children }: TabHeaderProps) => {
+  return <>{children}</>;
+};
+const TabContent = ({ children }: { children: ReactNode }) => <>{children}</>;
+const Tabs = ({ children, variant = "light", defaultActiveTab = 0 }: PropsInterface): JSX.Element => {
+  const tabHeaders = React.Children.toArray(children) as ReactElement<TabHeaderProps>[];
+  const [activeTab, setActiveTab] = useState(defaultActiveTab);
+
+  return (
+    <StyledTabsContainer>
+      <StyledTabHeader >
+        {tabHeaders.map((tab, index) => (
+          <StyledTabButton
+            key={index}
+            variant={variant}
+            isActive={index === activeTab}
+            onClick={() => setActiveTab(index)}
+          >
+            {tab.props.title}
+          </StyledTabButton>
+        ))}
+      </StyledTabHeader>
+      <StyledTabContent variant={variant}>
+        {tabHeaders[activeTab]?.props.children}
+      </StyledTabContent>
+    </StyledTabsContainer>
+  );
 };
 
-const TabContent = (props: ContentInterface): JSX.Element => {
-    const { children, activeTab } = props;
-    
-    return (
-        <StyledTabContent variant="light">
-            {children[activeTab]}
-        </StyledTabContent>
-    );
-};
-
-const Tabs = (props: PropsInterface): JSX.Element => {
-    const { children, variant = "light", titles, defaultActiveTab = 0 } = props;
-    const [activeTab, setActiveTab] = useState(defaultActiveTab);
-    
-    const handleTabClick = (index: number) => {
-        setActiveTab(index);
-    };
-    
-    return (
-        <StyledTabsContainer variant={variant}>
-            <TabHeader
-                titles={titles}
-                activeTab={activeTab}
-                onTabClick={handleTabClick}
-                variant={variant}
-            />
-            <TabContent activeTab={activeTab} children={children} />
-        </StyledTabsContainer>
-    );
-};
-
-export default Tabs;
+export { Tabs, TabHeader, TabContent};

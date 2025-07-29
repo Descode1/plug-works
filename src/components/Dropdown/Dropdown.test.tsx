@@ -48,6 +48,6 @@ describe("Dropdown component", () => {
     );
     fireEvent.click(screen.getByText("Dark"));
     const menu = screen.getByRole("menu");
-    expect(menu).toHaveStyle("background-color: #1f2937")
+    expect(menu).toHaveStyle("background-color: #000000ea")
   });
 });

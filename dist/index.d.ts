@@ -1,15 +1,16 @@
-import React$1, { JSX } from 'react';
+import React$1, { JSX, ReactNode } from 'react';
+import * as react_jsx_runtime from 'react/jsx-runtime';
 
-interface PropsInterface$2 {
+interface PropsInterface$5 {
     disabled?: boolean;
     children?: React.ReactNode;
     variant?: "primary" | "secondary" | "outlined";
     action?: () => void;
 }
 
-declare const Button: (props: PropsInterface$2) => JSX.Element;
+declare const Button: (props: PropsInterface$5) => JSX.Element;
 
-interface PropsInterface$1 {
+interface PropsInterface$4 {
     disabled?: boolean;
     variant?: "primary" | "secondary";
     placeholder?: string;
@@ -18,16 +19,48 @@ interface PropsInterface$1 {
     onChange?: (e: React$1.ChangeEvent<HTMLInputElement>) => void;
 }
 
-declare const Input: (props: PropsInterface$1) => JSX.Element;
+declare const Input: (props: PropsInterface$4) => JSX.Element;
 
 interface AccordionData {
     title: string;
     content: string | React.ReactNode;
 }
-interface PropsInterface {
+interface PropsInterface$3 {
     items: AccordionData[];
     allowMultipleOpen?: boolean;
 }
-declare const Accordion: (props: PropsInterface) => JSX.Element;
+declare const Accordion: (props: PropsInterface$3) => JSX.Element;
 
-export { Accordion, Button, Input };
+interface DropdownOption {
+    label: string;
+    value: string;
+}
+interface PropsInterface$2 {
+    options: DropdownOption[];
+    action: (value: string) => void;
+    variant?: "light" | "dark";
+    children: ReactNode;
+}
+declare const Dropdown: (props: PropsInterface$2) => JSX.Element;
+
+interface PropsInterface$1 {
+    children: React.ReactNode;
+    variant?: "light" | "dark";
+    title: string;
+    triggerText: string;
+}
+declare const Dialog: (props: PropsInterface$1) => react_jsx_runtime.JSX.Element;
+
+interface PropsInterface {
+    children: ReactNode;
+    variant?: "light" | "dark";
+    defaultActiveTab?: number;
+}
+interface TabProps {
+    title: string;
+    children: ReactNode;
+}
+declare const Tab: ({ children }: TabProps) => react_jsx_runtime.JSX.Element;
+declare const Tabs: ({ children, variant, defaultActiveTab }: PropsInterface) => JSX.Element;
+
+export { Accordion, Button, Dialog, Dropdown, Input, Tab, Tabs };

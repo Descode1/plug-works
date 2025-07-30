@@ -48,4 +48,4 @@ const Tabs = ({ children, variant = "light", defaultActiveTab = 0 }: PropsInterf
   );
 };
 
-export { Tabs, Tab};
+export  { Tabs, Tab};

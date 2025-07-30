@@ -24,12 +24,12 @@ const Dialog = (props: PropsInterface) =>{
         {renderTrigger()}
         {isOpen && (
             <Overlay>
-                <DialogContainer ref={ref} variant={variant}>
+                <DialogContainer ref={ref} variant={variant} data-testid="dialogContainer">
                     <Header>
-                        <Title>{title}</Title>
-                        <CloseButton onClick={toggleDialog}>x</CloseButton>
+                        <Title data-testid="dialogTitle">{title}</Title>
+                        <CloseButton onClick={toggleDialog} data-testid="dialogCloseButton">x</CloseButton>
                     </Header>
-                    <Content>{children}</Content>
+                    <Content data-testid="dialogContent">{children}</Content>
                 </DialogContainer>
             </Overlay>
         )}

@@ -34,14 +34,14 @@ const Tabs = ({ children, variant = "light", defaultActiveTab = 0 }: PropsInterf
           <StyledTabButton
             key={index}
             variant={variant}
-            isActive={index === activeTab}
+            isactive={index === activeTab}
             onClick={() => setActiveTab(index)}
           >
             {tab.props.title}
           </StyledTabButton>
         ))}
       </StyledTabHeader>
-      <StyledTabContent variant={variant}>
+      <StyledTabContent data-testid="tab-content" variant={variant}>
         {tabHeaders[activeTab]?.props.children}
       </StyledTabContent>
     </StyledTabsContainer>

@@ -5,7 +5,7 @@ interface StyledProps {
 }
 
 interface ButtonProps extends StyledProps {
-  isActive: boolean;
+  isactive: boolean;
 }
 
 export const StyledTabsContainer = styled.div`
@@ -30,16 +30,16 @@ export const StyledTabButton = styled.button<ButtonProps>`
   font-weight: 500;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background-color: ${props =>
-    props.isActive
+    props.isactive
       ? props.variant === "light" ? "#e0e0e0" : "#333333"
       : "transparent"};
   color: ${props =>
-    props.isActive
+    props.isactive
       ? props.variant === "light" ? "#000000" : "#ffffff"
       : props.variant === "light" ? "#444444" : "#817e7eff"};
   border: 1px solid
     ${props =>
-      props.isActive
+      props.isactive
         ? props.variant === "light" ? "#c0c0c0" : "#444444"
         : "transparent"};
   transition: background-color 0.2s ease;

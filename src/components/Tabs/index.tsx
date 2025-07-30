@@ -13,19 +13,19 @@ interface PropsInterface {
   defaultActiveTab?: number;
 }
 
-interface TabHeaderProps {
+interface TabProps {
   title: string;
   children: ReactNode;
 }
 
-
-const TabHeader = ({ children }: TabHeaderProps) => {
+const Tab = ({ children }: TabProps) => {
   return <>{children}</>;
 };
-const TabContent = ({ children }: { children: ReactNode }) => <>{children}</>;
+
 const Tabs = ({ children, variant = "light", defaultActiveTab = 0 }: PropsInterface): JSX.Element => {
-  const tabHeaders = React.Children.toArray(children) as ReactElement<TabHeaderProps>[];
-  const [activeTab, setActiveTab] = useState(defaultActiveTab);
+
+  const tabHeaders = React.Children.toArray(children) as ReactElement<TabProps>[];
+  const [activeTab, setActiveTab] = useState<number>(defaultActiveTab);
 
   return (
     <StyledTabsContainer>
@@ -48,4 +48,4 @@ const Tabs = ({ children, variant = "light", defaultActiveTab = 0 }: PropsInterf
   );
 };
 
-export { Tabs, TabHeader, TabContent};
+export { Tabs, Tab};

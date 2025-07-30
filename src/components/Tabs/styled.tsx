@@ -8,12 +8,11 @@ interface ButtonProps extends StyledProps {
   isActive: boolean;
 }
 
-// Wrapper for layout purposes (no visual box)
 export const StyledTabsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
 `;
 
 export const StyledTabHeader = styled.div`
@@ -25,10 +24,11 @@ export const StyledTabHeader = styled.div`
 export const StyledTabButton = styled.button<ButtonProps>`
   padding: 8px 16px;
   border: none;
-  border-radius: 9999px; /* full pill */
+  border-radius: 9999px; 
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background-color: ${props =>
     props.isActive
       ? props.variant === "light" ? "#e0e0e0" : "#333333"
@@ -36,7 +36,7 @@ export const StyledTabButton = styled.button<ButtonProps>`
   color: ${props =>
     props.isActive
       ? props.variant === "light" ? "#000000" : "#ffffff"
-      : props.variant === "light" ? "#444444" : "#cccccc"};
+      : props.variant === "light" ? "#444444" : "#817e7eff"};
   border: 1px solid
     ${props =>
       props.isActive
@@ -51,9 +51,10 @@ export const StyledTabButton = styled.button<ButtonProps>`
 `;
 
 export const StyledTabContent = styled.div<StyledProps>`
-  width: 100%;
+  width: auto;
   padding: 24px;
   border-radius: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background-color: ${props =>
     props.variant === "light" ? "#ffffff" : "#1e1e1e"};
   color: ${props =>

@@ -18,6 +18,10 @@ const meta: Meta<typeof Dialog> = {
       control: 'text',
       description: 'Title displayed in the dialog header',
     },
+    triggerText: {
+        control: 'text',
+        description: 'anything'
+    },
     children: {
       control: 'text',
       description: 'Content to display inside the dialog',
@@ -34,6 +38,7 @@ export const Default: Story = {
     variant: 'light',
     title: 'Default Dialog',
     children: 'This is the default dialog content. You can put any React content here.',
+    triggerText:'Custom button',
   },
 };
 

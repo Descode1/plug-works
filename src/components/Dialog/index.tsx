@@ -5,17 +5,23 @@ export interface PropsInterface{
     children: React.ReactNode;
     variant?:"light" | "dark";
     title: string;
+    triggerText: string;
 }
 
 const Dialog = (props: PropsInterface) =>{
-    const {children, variant = "light", title} = props;
+    const {children, variant = "light", title, triggerText} = props;
     const[isOpen, setIsOpen] = useState<boolean>(false);
     const ref = useRef<HTMLDivElement>(null);
 
-    const toggleDialog = () => setIsOpen(prev => !prev)
+    const toggleDialog = () => setIsOpen(prev => !prev);
+    const renderTrigger = () =>{
+        return(
+            <OpenButton onClick={toggleDialog}>{triggerText}</OpenButton>
+        )
+    }
     return(
         <>
-        <OpenButton onClick={toggleDialog}>Open Dialog</OpenButton>
+        {renderTrigger()}
         {isOpen && (
             <Overlay>
                 <DialogContainer ref={ref} variant={variant}>

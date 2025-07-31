@@ -6,14 +6,23 @@ import postcss from 'rollup-plugin-postcss';
 import packageJson from "./package.json" with { type:"json" };
 
 export default [
-    // JavaScript bundle
     {
         input: "src/index.ts",
+        external: [
+            'react',
+            'react-dom',
+            'styled-components',
+        ],
         output: [
             {
                 file: packageJson.main,
                 format: "cjs",
                 sourcemap: true,
+                globals: {
+                    'react': 'React',
+                    'react-dom': 'ReactDOM',
+                    'styled-components': 'styled'
+                }
             },
             {
                 file: packageJson.module,
@@ -22,7 +31,9 @@ export default [
             },
         ],
         plugins: [
-            nodeResolve(),
+            nodeResolve({
+                preferBuiltins: false
+            }),
             commonjs(),
             typescript({
                 tsconfig: "./tsconfig.json",
@@ -38,11 +49,16 @@ export default [
             })
         ],
     },
-    // TypeScript declarations bundle
+
     {
         input: "src/index.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
         plugins: [dts()],
-        external: [/\.css$/]
+        external: [
+            /\.css$/,
+            'react',
+            'react-dom', 
+            'styled-components'
+        ]
     }
 ];

@@ -14,7 +14,6 @@
     "test": "jest  --verbose",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "release": "standard-version"

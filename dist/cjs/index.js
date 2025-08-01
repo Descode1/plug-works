@@ -228,7 +228,7 @@ const DropdownItem = styled.div `
 `;
 
 const Dropdown = (props) => {
-    const { options, action, variant = "light", children } = props;
+    const { options, variant = "light", children } = props;
     const [isOpen, setIsOpen] = React.useState(false);
     const ref = React.useRef(null);
     React.useEffect(() => {
@@ -241,7 +241,9 @@ const Dropdown = (props) => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
     return (jsxRuntime.jsxs("div", { ref: ref, style: { position: "relative", display: "inline-block" }, children: [jsxRuntime.jsx("div", { onClick: () => setIsOpen((prev) => !prev), style: { display: "inline-block", cursor: "pointer" }, children: children }), isOpen && (jsxRuntime.jsx(DropdownMenu, { variant: variant, role: "menu", children: options.map((opt) => (jsxRuntime.jsx(DropdownItem, { onClick: () => {
-                        action(opt.value);
+                        if (opt.action) {
+                            opt.action();
+                        }
                         setIsOpen(false);
                     }, children: opt.label }, opt.value))) }))] }));
 };

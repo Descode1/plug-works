@@ -226,7 +226,7 @@ const DropdownItem = styled.div `
 `;
 
 const Dropdown = (props) => {
-    const { options, action, variant = "light", children } = props;
+    const { options, variant = "light", children } = props;
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
     useEffect(() => {
@@ -239,7 +239,9 @@ const Dropdown = (props) => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
     return (jsxs("div", { ref: ref, style: { position: "relative", display: "inline-block" }, children: [jsx("div", { onClick: () => setIsOpen((prev) => !prev), style: { display: "inline-block", cursor: "pointer" }, children: children }), isOpen && (jsx(DropdownMenu, { variant: variant, role: "menu", children: options.map((opt) => (jsx(DropdownItem, { onClick: () => {
-                        action(opt.value);
+                        if (opt.action) {
+                            opt.action();
+                        }
                         setIsOpen(false);
                     }, children: opt.label }, opt.value))) }))] }));
 };

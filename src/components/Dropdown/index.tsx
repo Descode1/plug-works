@@ -4,17 +4,17 @@ import { DropdownMenu, DropdownItem } from "./styled";
 export interface DropdownOption {
   label: string;
   value: string;
+  action?: ()=> void;
 }
 
 export interface PropsInterface {
   options: DropdownOption[];
-  action: (value: string) => void;
   variant?: "light" | "dark";
   children: ReactNode;
 }
 
 const Dropdown = (props: PropsInterface): JSX.Element => {
-  const { options, action, variant = "light", children } = props;
+  const { options,variant = "light", children } = props;
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -41,7 +41,8 @@ const Dropdown = (props: PropsInterface): JSX.Element => {
             <DropdownItem
               key={opt.value}
               onClick={() => {
-                action(opt.value);
+                if(opt.action){
+                opt.action();}
                 setIsOpen(false);
               }}
             >

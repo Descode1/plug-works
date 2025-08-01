@@ -34,10 +34,10 @@ declare const Accordion: (props: PropsInterface$3) => JSX.Element;
 interface DropdownOption {
     label: string;
     value: string;
+    action?: () => void;
 }
 interface PropsInterface$2 {
     options: DropdownOption[];
-    action: (value: string) => void;
     variant?: "light" | "dark";
     children: ReactNode;
 }

@@ -6,12 +6,12 @@ import { fireEvent, render, screen } from "@testing-library/react";
 const mockOption: DropdownOption[] = [
   { label: "Option 1", value: "1" },
   { label: "Option 2", value: "2" },
-  { label: "Option 3", value: "3" },
+  { label: "Option 3", value: "3", action: jest.fn() },
 ];
 describe("Dropdown component", () => {
   test("renders trigger and no menu initially", () => {
     render(
-      <Dropdown options={mockOption} action={jest.fn()}>
+      <Dropdown options={mockOption} >
         Toggle
       </Dropdown>
     );
@@ -20,7 +20,7 @@ describe("Dropdown component", () => {
   });
   test("opens dropdown on trigger click", () => {
     render(
-      <Dropdown options={mockOption} action={jest.fn()} variant="light">
+      <Dropdown options={mockOption}  variant="light">
         Menu
       </Dropdown>
     );
@@ -31,7 +31,7 @@ describe("Dropdown component", () => {
   });
   test("applies light variant styles", () => {
     render(
-      <Dropdown options={mockOption} action={jest.fn()} variant="light">
+      <Dropdown options={mockOption}  variant="light">
         <button>Light</button>
       </Dropdown>
     );
@@ -42,7 +42,7 @@ describe("Dropdown component", () => {
 
   test("applies dark variant styles", () => {
     render(
-      <Dropdown options={mockOption} action={jest.fn()} variant="dark">
+      <Dropdown options={mockOption}  variant="dark">
         <button>Dark</button>
       </Dropdown>
     );
